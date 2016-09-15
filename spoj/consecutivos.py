@@ -1,4 +1,4 @@
-# br.spoj.com/problems/CONSEC12/
+# http://br.spoj.com/problems/CONSEC12/
 
 input()
 

@@ -1,4 +1,4 @@
-# br.spoj.com/problems/PAR/
+# http://br.spoj.com/problems/PAR/
 
 c = 1
 n = int(input())
