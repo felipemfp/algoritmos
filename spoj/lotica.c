@@ -12,7 +12,7 @@ char getLetter(int m)
 
 int main(void)
 {
-  int  i, j, n, current;
+  int i, j, n, current;
   char letter;
   scanf("%d", &n);
   while (n > 0)

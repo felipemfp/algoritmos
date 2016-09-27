@@ -17,7 +17,7 @@ char monthIsValid(int mm)
 char dateIsValid(int yy, int mm, int dd)
 {
   int ref[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-  if (!yearIsValid(yy) || !monthIsValid(mm)) 
+  if (!yearIsValid(yy) || !monthIsValid(mm))
   {
     return 0;
   }
@@ -28,14 +28,15 @@ char dateIsValid(int yy, int mm, int dd)
   return 0;
 }
 
-int main(void) {
+int main(void)
+{
   setvbuf(stdout, NULL, _IONBF, 0);
 
   int yy, mm, dd;
-  
+
   printf("Digite o ano, mês e dia: ");
   scanf("%d %d %d", &yy, &mm, &dd);
-  
+
   if (dateIsValid(yy, mm, dd))
   {
     printf("Data válida!\n");
@@ -46,5 +47,4 @@ int main(void) {
   }
 
   return 0;
-    
 }

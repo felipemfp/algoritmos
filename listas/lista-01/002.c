@@ -1,21 +1,22 @@
 #include "stdio.h"
 
-int main(void) {
+int main(void)
+{
   setvbuf(stdout, NULL, _IONBF, 0);
 
   int a, b, c;
-  
+
   printf("Digite três inteiros na ordem que você quiser: ");
   scanf("%d %d %d", &a, &b, &c);
-  
+
   printf("Em ordem crescente: ");
   if (a < b && a < c)
   {
-    if (b < c) 
+    if (b < c)
     {
-      printf("%d %d %d", a, b, c);  
+      printf("%d %d %d", a, b, c);
     }
-    else 
+    else
     {
       printf("%d %d %d", a, c, b);
     }
@@ -37,14 +38,13 @@ int main(void) {
     {
       printf("%d %d %d", c, a, b);
     }
-    else 
+    else
     {
       printf("%d %d %d", c, b, a);
     }
   }
-  
+
   printf("\n");
 
   return 0;
-    
 }

@@ -8,12 +8,12 @@ m = 0
 am = 0
 
 for c in l:
-	if c == lc:
-		am += 1
-	else:
-		lc = c
-		am = 1
-	if am > m:
-		m = am
+    if c == lc:
+        am += 1
+    else:
+        lc = c
+        am = 1
+    if am > m:
+        m = am
 
 print(m)

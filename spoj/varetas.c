@@ -27,7 +27,7 @@ int main(void)
           rets++;
           qt[j] -= 2;
           qt[i] -= 2;
-          i      = -1;
+          i = -1;
         }
         else
         {
