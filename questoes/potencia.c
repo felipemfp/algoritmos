@@ -2,7 +2,7 @@
  * Escreva um programa que calcule a potência de forma recursiva.
  */
 
-#include "stdio.h"
+#include <stdio.h>
 
 double recursive_pow(double x, int y)
 {

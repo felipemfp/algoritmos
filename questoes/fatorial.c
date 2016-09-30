@@ -2,7 +2,7 @@
  * Escreva um programa que calcule o fatorial de forma recursiva.
  */
 
-#include "stdio.h"
+#include <stdio.h>
 
 int recursive_factorial(int x)
 {

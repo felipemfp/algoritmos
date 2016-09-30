@@ -3,7 +3,7 @@
  * entre dois elementos consecutivos desse array e em que indices eles estão.
  */
 
-#include "stdio.h"
+#include <stdio.h>
 
 int main(void)
 {
