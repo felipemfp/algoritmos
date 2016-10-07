@@ -20,6 +20,6 @@ double recursive_pow(double x, int y)
 }
 
 int main(void) {
-  printf("%lf\n", recursive_pow(2, 2)); // expected 4.00000
+  printf("%lf\n", recursive_pow(2, 2)); // expected: 4.00000
   return 0;
 }

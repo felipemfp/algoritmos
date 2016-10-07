@@ -16,6 +16,6 @@ int recursive_fibonacci(int n)
 
 
 int main(void) {
-  printf("%d\n", recursive_fibonacci(10)); // expected 55
+  printf("%d\n", recursive_fibonacci(10)); // expected: 55
   return 0;
 }

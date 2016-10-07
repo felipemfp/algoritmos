@@ -15,6 +15,6 @@ int recursive_factorial(int x)
 }
 
 int main(void) {
-  printf("%d\n", recursive_factorial(6)); // expected 720
+  printf("%d\n", recursive_factorial(6)); // expected: 720
   return 0;
 }
