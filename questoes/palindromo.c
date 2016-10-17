@@ -3,8 +3,8 @@
  * é um palíndromo.
  */
 
- #include <stdio.h>
- #include <string.h>
+#include <stdio.h>
+#include <string.h>
 
 char isLetter(char c)
 {
