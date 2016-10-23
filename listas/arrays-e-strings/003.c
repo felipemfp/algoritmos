@@ -1,13 +1,9 @@
-/*
- * Não funcionando. :(
- */
-
 #include <stdio.h>
 
 int indexOf(int* arr, int len, int lookfor)
 {
   int i;
-  for (i=0; i<len; i++)
+  for (i = 0; i < len; i++)
   {
     if (arr[i] == lookfor)
     {
@@ -24,7 +20,8 @@ int indexOfGreatest(int* arr, int len, int ignore)
   {
     greatest = arr[ignore];
   }
-  for (i = 0; i < len; i++) {
+  for (i = 0; i < len; i++)
+  {
     if (i == ignore)
     {
       i++;
@@ -38,8 +35,15 @@ int indexOfGreatest(int* arr, int len, int ignore)
   return indGreatest;
 }
 
-int main(void) {
-  int lenZones = 5, lenMayors = 4, lenAldermen = 5, nullVotes = 0, aldermanVote, mayorVote, aldermanIndex, mayorIndex, mayorSecondIndex;
+int main(void)
+{
+  int lenZones = 5,
+      lenMayors = 4,
+      lenAldermen = 5,
+      nullVotes = 0,
+      aldermanIndex,
+      mayorIndex,
+      mayorSecondIndex;
 
   int mayors[] = { 13, 21, 25, 12 };
   char * mayorsName[] = { "Marcelo Bonito", "Robson Dantas", "Caetando Veloso", "Carlos Silva" };
@@ -47,20 +51,21 @@ int main(void) {
 
   int aldermen[] = { 20000, 20001, 20002, 20003, 20004 };
   char * aldermenName[] = { "Monica", "Chandler", "Ross", "Rachel", "Phoebe" };
-  int aldermenVotes[] = { 0, 0, 0, 0, 0};
+  int aldermenVotes[] = { 0, 0, 0, 0, 0 };
 
   int zones[] = { 1, 2, 3, 4, 69 };
-  int numPerZone[] = { 3, 2, 1, 1, 2};
+  int numPerZone[] = { 3, 2, 1, 1, 2 };
 
   int i, j;
-  for (i=0; i<lenZones; i++)
+  for (i = 0; i < lenZones; i++)
   {
     printf("Zona Eleitoral #%d\n", zones[i]);
-    for (j =0; j<numPerZone[i]; j++)
+    for (j = 0; j < numPerZone[i]; j++)
     {
+      int aldermanVote, mayorVote;
       printf("Olá, Eleitor %d\n", j + 1);
-      printf("Informe seu voto para vereador: \n");
-      scanf("%d\n", &aldermanVote);
+      printf("Informe seu voto para vereador: ");
+      scanf("%d", &aldermanVote);
       aldermanIndex = indexOf(aldermen, lenAldermen, aldermanVote);
       if (aldermanIndex > -1)
       {
@@ -71,8 +76,8 @@ int main(void) {
       {
         printf("Você votou nulo para vereador.\n");
       }
-      printf("Informe seu voto para prefeito: \n");
-      scanf("%d\n", &mayorVote);
+      printf("Informe seu voto para prefeito: ");
+      scanf("%d", &mayorVote);
       mayorIndex = indexOf(mayors, lenMayors, mayorVote);
       if (mayorIndex > -1)
       {
@@ -83,15 +88,13 @@ int main(void) {
       {
         printf("Você votou nulo para prefeito.\n");
       }
-      printf("\n");
+      printf("-------------\n\n");
     }
-    printf("\n\n");
+    printf("\n=============\n\n");
   }
 
   mayorIndex = indexOfGreatest(mayorsVotes, lenMayors, -1);
   mayorSecondIndex = indexOfGreatest(mayorsVotes, lenMayors, mayorIndex);
-  aldermanIndex = indexOfGreatest(aldermenVotes, lenAldermen, -1);
-
   if (mayorSecondIndex > -1)
   {
     printf("Os prefeitos '%s' e '%s' disputarão o segundo turno.\n", mayorsName[mayorIndex], mayorsName[mayorSecondIndex]);
@@ -100,6 +103,7 @@ int main(void) {
   {
     printf("O prefeito eleito foi '%s'.\n", mayorsName[mayorIndex]);
   }
+  aldermanIndex = indexOfGreatest(aldermenVotes, lenAldermen, -1);
   printf("O vereador mais votado foi '%s'.\n", aldermenName[aldermanIndex]);
   return 0;
 }

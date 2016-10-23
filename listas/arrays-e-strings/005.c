@@ -12,8 +12,9 @@ char isLetter(char c)
 
 char isPalindrome(char * str)
 {
-	int i, j, len = strlen(str);
-  for (i = 0, j = len - 1; i < len; i++, j--) {
+  int i, j, len = strlen(str);
+  for (i = 0, j = len - 1; i < len; i++, j--)
+  {
     while (!isLetter(str[i]))
     {
       i++;
@@ -50,7 +51,8 @@ char isPalindrome(char * str)
   return 1;
 }
 
-int main(void) {
+int main(void)
+{
   setvbuf(stdout, NULL, _IONBF, 0);
   char phrase[100];
 
