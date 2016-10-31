@@ -198,7 +198,7 @@ int main(int argc, char const *argv[])
     printBoard(board);
   }
   printf("\n\nJOGO TERMINADO!!!\n");
-  if (winner > 0)
+  if (winner >= 0)
   {
     printf("O Jogador %d (%c) ganhou.\n", winner + 1, identifier[winner]);
   }
