@@ -52,10 +52,10 @@ int find(int *a, int size, int x)
   return index;
 }
 
-double normalize_to_millis(double arr[], int length)
+long double normalize_to_millis(long double arr[], int length)
 {
   int i, max = 0, min = 0;
-  double sum = 0.0;
+  long double sum = 0.0;
   for (i = 0; i < length - 2; i++)
   {
     if (arr[i] > arr[max])
@@ -76,14 +76,14 @@ double normalize_to_millis(double arr[], int length)
     sum += arr[i] / CLOCKS_PER_SEC;
   }
   int avg_len = length - (max != min ? 2 : 1);
-  double avg = sum / avg_len;
+  long double avg = sum / avg_len;
   return(avg * 1000.0);
 }
 
 void interate(int value)
 {
   clock_t t;
-  double seconds[INTERATIONS];
+  long double seconds[INTERATIONS];
   int n = value;
   int arr[n];
   int j;
@@ -97,17 +97,17 @@ void interate(int value)
     t = clock();
     find(arr, n, arr[n - 1]);
     t = clock() - t;
-    seconds[j] = ((double) t);
+    seconds[j] = ((long double) t);
   }
-  printf("%f,", normalize_to_millis(seconds, INTERATIONS));
+  printf("%Lf,", normalize_to_millis(seconds, INTERATIONS));
   for (j = 0; j < INTERATIONS; j++)
   {
     t = clock();
     find_alt(arr, n, arr[n - 1]);
     t = clock() - t;
-    seconds[j] = ((double) t);
+    seconds[j] = ((long double) t);
   }
-  printf("%f\n", normalize_to_millis(seconds, INTERATIONS));
+  printf("%Lf\n", normalize_to_millis(seconds, INTERATIONS));
 }
 
 int main(int argc, char const *argv[])
