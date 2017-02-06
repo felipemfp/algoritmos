@@ -7,7 +7,7 @@ struct Node {
   struct Node * next;
 };
 
-struct Node * queue_first;
+// struct Node * queue_first;
 struct Node * queue_last;
 void queue_enqueue(int x);
 int queue_dequeue();
