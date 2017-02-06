@@ -1,15 +1,19 @@
 #include "bubble_sort.h"
 
 void bubble_sort(int a[], int length) {
-  int i, j, aux;
+  int i, j, aux, sorting;
 
-  for (i = 0; i < length - 1; i++) {
-    for (j = 0; j < length - 1 - i; j++) {
-      if (a[j] > a[j + 1]) {
-        aux = a[j];
-        a[j] = a[j+1];
-        a[j+1] = aux;
+  do {
+    sorting = 0;
+
+    for (i = 0; i < length - 1; i++) {
+      if (a[i] > a[i + 1]) {
+        aux = a[i];
+        a[i] = a[i+1];
+        a[i+1] = aux;
+        sorting = 1;
       }
     }
-  }
+
+  } while(sorting);
 }
