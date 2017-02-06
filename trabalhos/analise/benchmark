@@ -1,18 +1,39 @@
 #!/bin/bash
 
 COMPILER=gcc
+ALGORITHM_FLAG=${3}
 
-OUTPUT[1]=enqueue.linux.csv
-OUTPUT[2]=binary_search.linux.csv
-OUTPUT[3]=dequeue.linux.csv
-OUTPUT[4]=quick_sort.linux.csv
-OUTPUT[5]=bubble_sort.linux.csv
-OUTPUT[6]=fibonacci.linux.csv
+OUTPUT[1]=enqueue.linux
+OUTPUT[2]=binary_search.linux
+OUTPUT[3]=dequeue.linux
+OUTPUT[4]=quick_sort.linux
+OUTPUT[5]=bubble_sort.linux
+OUTPUT[6]=fibonacci.linux
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage"
+  echo "  $0 MIN MAX"
+  echo ""
+  echo "  MIN               minimum exponent"
+  echo "  MAX               maximum exponent"
+  echo ""
+  echo "Options"
+  echo "  --algorithm, -a   select algorithm"
+  echo ""
+  echo "Examples"
+  echo "  $0 0 20 --algorithm 4"
+  echo "  $0 0 5"
+  exit 1
+fi
 
 $COMPILER benchmark.linux.c queue.c binary_search.c quick_sort.c bubble_sort.c fibonacci.c -o bin/benchmark -lm
 mkdir -p csv
 
-for i in {1..6}
-do
-  ./bin/benchmark $i $1 $2 > csv/${OUTPUT[$i]}
-done
+if [ "$ALGORITHM_FLAG" == "--algorithm" ] || [ "$ALGORITHM_FLAG" == "-a" ]; then
+  ./bin/benchmark $4 $1 $2 > csv/${OUTPUT[$4]}.csv
+else
+  for i in {1..6}
+  do
+    ./bin/benchmark $i $1 $2 > csv/${OUTPUT[$4]}.csv
+  done
+fi
