@@ -5,27 +5,35 @@ void queue_enqueue(int x) {
   struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
 
   temp->data = x;
-  temp->next = NULL;
 
-  if (queue_first == NULL && queue_last == NULL) {
-    queue_first = queue_last = temp;
+  if (queue_last == NULL) {
+    queue_last = temp;
   }
-
-  queue_last->next = temp;
-  queue_last = temp;
+  else {
+    temp->next = queue_last;
+    queue_last = temp;
+  }
 }
 
 int queue_dequeue() {
-  struct Node* temp = queue_first;
+  struct Node* temp_a;
+  struct Node* temp_b = queue_last;
+  int data;
 
-  if (queue_first == queue_last) {
-    queue_first = queue_last = NULL;
+  if (temp_b->next == NULL) {
+    data = temp_b->data;
+    free(temp_b);
   }
   else {
-    queue_first = queue_first->next;
+    temp_a = temp_b->next;
+    while(temp_a->next != NULL) {
+      temp_b = temp_a;
+      temp_a = temp_a->next;
+    }
+    data = temp_a->data;
+    temp_b->next = NULL;
+    free(temp_a);
   }
 
-  int data = temp->data;
-  free(temp);
   return data;
 }
