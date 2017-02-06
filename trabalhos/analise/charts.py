@@ -17,8 +17,9 @@ if __name__ == '__main__':
     for csvfile in glob.glob('csv/*.csv'):
         with open(csvfile) as csvf:
             title = csvfile.split('/')[1].split('.')[0]
-            data = [(pow(row[0]), float(row[1])) for row in csv.reader(csvf)]
+            data = ((pow(row[0]), float(row[1])) for row in csv.reader(csvf))
             plt.plot(*zip(*data))
             plt.ylabel('tempo (ms)')
             plt.xlabel(title.title())
             plt.savefig('charts/{}.linux.png'.format(title))
+            plt.gcf().clf()
