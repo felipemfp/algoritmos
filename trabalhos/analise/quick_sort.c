@@ -1,24 +1,32 @@
 #include "quick_sort.h"
 
 void quick_sort(int a[], int start, int end) {
-  int i, j;
-  int base = start, aux;
-  for (i = start + 1; i <= end; i++) {
-    j = i;
-    if(a[j] < a[base]) {
-      aux = a[j];
-      while (j > base) {
-        a[j] = a[j-1];
-        j--;
-      }
-      a[j] = aux;
-      base++;
+  int i = start;
+  int j = end;
+  int pivot = a[(start + end) / 2];
+  int aux;
+
+  while (i < j) {
+    while (a[i] < pivot) {
+      i += 1;
     }
+    while (a[j] > pivot) {
+      j -= 1;
+    }
+    if (i < j) {
+      aux = a[i];
+      a[i] = a[j];
+      a[j] = aux;
+    }
+    i += 1;
+    j -= 1;
   }
-  if (base - 1 >= start) {
-    quick_sort(a, start, base-1);
+
+  if (j > start) {
+    quick_sort(a, start, j);
   }
-  if (base + 1 <= end) {     
-    quick_sort(a,base+1,end);
+
+  if (i < end) {
+    quick_sort(a, j, end);
   }
 }
