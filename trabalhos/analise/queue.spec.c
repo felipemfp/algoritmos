@@ -21,12 +21,22 @@ int main(int argc, char const *argv[]) {
   results[2] = queue_dequeue();
   results[3] = queue_dequeue();
   results[4] = queue_dequeue();
+  queue_enqueue(expected[0]);
+  queue_enqueue(expected[1]);
+  queue_enqueue(expected[2]);
+  queue_enqueue(expected[3]);
+  queue_enqueue(expected[4]);
+  queue_clear();
 
   // assert
   for (i = 0; i < LENGTH; i++) {
     if (expected[i] != results[i]) {
       return 1;
     }
+  }
+
+  if (queue_dequeue() != -1) {
+    return 1;
   }
   return 0;
 }

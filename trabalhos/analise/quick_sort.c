@@ -27,6 +27,6 @@ void quick_sort(int a[], int start, int end) {
   }
 
   if (i < end) {
-    quick_sort(a, j, end);
+    quick_sort(a, i, end);
   }
 }

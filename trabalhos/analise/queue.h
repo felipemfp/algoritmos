@@ -11,5 +11,6 @@ struct Node {
 struct Node * queue_last;
 void queue_enqueue(int x);
 int queue_dequeue();
+void queue_clear();
 
 #endif

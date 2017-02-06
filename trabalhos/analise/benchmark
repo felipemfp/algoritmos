@@ -1,0 +1,18 @@
+#!/bin/bash
+
+COMPILER=gcc
+
+OUTPUT[1]=enqueue.linux.csv
+OUTPUT[2]=binary_search.linux.csv
+OUTPUT[3]=dequeue.linux.csv
+OUTPUT[4]=quick_sort.linux.csv
+OUTPUT[5]=bubble_sort.linux.csv
+OUTPUT[6]=fibonacci.linux.csv
+
+$COMPILER benchmark.linux.c queue.c binary_search.c quick_sort.c bubble_sort.c fibonacci.c -o bin/benchmark -lm
+mkdir -p csv
+
+for i in {1..6}
+do
+  ./bin/benchmark $i $1 $2 >> csv/${OUTPUT[$i]}
+done

@@ -20,9 +20,14 @@ int queue_dequeue() {
   struct Node* temp_b = queue_last;
   int data;
 
+  if (temp_b == NULL) {
+    return -1;
+  }
+
   if (temp_b->next == NULL) {
     data = temp_b->data;
     free(temp_b);
+    queue_last = NULL;
   }
   else {
     temp_a = temp_b->next;
@@ -36,4 +41,10 @@ int queue_dequeue() {
   }
 
   return data;
+}
+
+void queue_clear() {
+  while (queue_last != NULL) {
+    queue_dequeue();
+  }
 }
