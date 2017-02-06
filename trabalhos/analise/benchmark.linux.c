@@ -8,7 +8,7 @@
 #include "bubble_sort.h"
 #include "fibonacci.h"
 
-#define INTERATIONS    5
+#define INTERATIONS    100
 
 long double normalize_to_millis(long double arr[], int length)
 {
