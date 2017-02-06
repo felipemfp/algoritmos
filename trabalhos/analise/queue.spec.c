@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include "queue.h"
 
+#define LENGTH 5
+
 int main(int argc, char const *argv[]) {
   // arrange
   int i;
   int expected[] = {1, 2, 3, 4, 5};
-  int result[5];
+  int results[LENGTH];
 
   // act
   queue_enqueue(expected[0]);
@@ -14,15 +16,15 @@ int main(int argc, char const *argv[]) {
   queue_enqueue(expected[2]);
   queue_enqueue(expected[3]);
   queue_enqueue(expected[4]);
-  result[0] = queue_dequeue();
-  result[1] = queue_dequeue();
-  result[2] = queue_dequeue();
-  result[3] = queue_dequeue();
-  result[4] = queue_dequeue();
+  results[0] = queue_dequeue();
+  results[1] = queue_dequeue();
+  results[2] = queue_dequeue();
+  results[3] = queue_dequeue();
+  results[4] = queue_dequeue();
 
   // assert
-  for (i = 0; i < 5; i++) {
-    if (expected[i] != result[i]) {
+  for (i = 0; i < LENGTH; i++) {
+    if (expected[i] != results[i]) {
       return 1;
     }
   }
