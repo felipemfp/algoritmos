@@ -26,11 +26,12 @@ if [ -z "$1" ] || [ -z "$2" ]; then
   exit 1
 fi
 
+mkdir -p bin
 $COMPILER benchmark.linux.c queue.c binary_search.c quick_sort.c bubble_sort.c fibonacci.c -o bin/benchmark -lm
 mkdir -p csv
 
 if [ "$ALGORITHM_FLAG" == "--algorithm" ] || [ "$ALGORITHM_FLAG" == "-a" ]; then
-  ./bin/benchmark $4 $1 $2 > csv/${OUTPUT[$4]}.csv
+  ./bin/benchmark $4 $1 $2
 else
   for i in {1..6}
   do

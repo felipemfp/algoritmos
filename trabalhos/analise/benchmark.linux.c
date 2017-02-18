@@ -14,6 +14,9 @@ long double normalize_to_millis(long double arr[], int length)
 {
   int i, max = 0, min = 0;
   long double sum = 0.0;
+  if (length == 1) {
+    return (arr[0] / CLOCKS_PER_SEC) * 1000.0;
+  }
   for (i = 0; i < length - 2; i++)
   {
     if (arr[i] > arr[max])
