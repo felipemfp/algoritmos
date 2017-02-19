@@ -5,14 +5,8 @@ void queue_enqueue(int x) {
   struct Node* temp = (struct Node*)malloc(sizeof(struct Node));
 
   temp->data = x;
-
-  if (queue_last == NULL) {
-    queue_last = temp;
-  }
-  else {
-    temp->next = queue_last;
-    queue_last = temp;
-  }
+  temp->next = queue_last;
+  queue_last = temp;
 }
 
 int queue_dequeue() {
