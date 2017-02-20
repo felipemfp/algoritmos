@@ -7,7 +7,7 @@ int main(int argc, char const *argv[]) {
   // arrange
   int i;
   int values[] = { 1, 5, 10 };
-  int expected[] = { 1, 8, 89 };
+  int expected[] = { 1, 5, 55 };
   int results[LENGTH];
 
   // act
